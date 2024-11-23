@@ -13,4 +13,8 @@
     .link{
         @apply hover:underline cursor-pointer;
     }
+
+    .header-icons{
+        @apply bg-transparent p-2 hover:bg-gray-200 text-4xl rounded-full cursor-pointer
+    }
 }
