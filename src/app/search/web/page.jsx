@@ -13,6 +13,10 @@ const WebSearchPage = () => {
     );
     const data = await response.json();
     setResults(data.items);
+
+    if(!data.items){
+      return <h1>No result found</h1>
+    }
   };
 
   useEffect(() => {
@@ -21,9 +25,13 @@ const WebSearchPage = () => {
 
   return (
     <>
-     {results && results.map((result) =>{
-         return <h1 key={result}>{result.title}</h1>
-     })}
+     {results ? results.map((result,idx) =>{
+         return <h1 key={idx}>{result.title}</h1>
+     }): (
+      <div className="flex item-center justify-center pt-10">
+        <h1 className="text-xl">No result found</h1>
+      </div>
+     )}
   </>
   )
 };
