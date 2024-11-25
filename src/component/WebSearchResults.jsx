@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Parser from "html-react-parser"
+import PaginationButtons from "./PaginationButtons"
 
 const WebSearchResults = ({results}) => {
   return (
@@ -9,7 +10,7 @@ const WebSearchResults = ({results}) => {
           results ({results.searchInformation?.formattedSearchTime} seconds)
        </p>
        {
-        results.items.map((result)=>{
+        results?.items?.map((result)=>{
             return <div className="mb-8 max-w-xl" key={result.link}>
                 <div className="flex flex-col group">
                     <Link className="text-sm truncate" href={result.link}>{result.formattedUrl}</Link>
@@ -19,6 +20,9 @@ const WebSearchResults = ({results}) => {
             </div>
         })
        }
+       <div className="mt-10">
+            <PaginationButtons/>
+        </div>
     </div>
   )
 }

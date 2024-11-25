@@ -7,10 +7,11 @@ const ImageSearchPage = () => {
   const [results, setResults] = useState(null);
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("searchTerm");
+  const startIndex = searchParams.get("start") || "1";
 
   const handleGoogleApi = async () => {
     const response = await fetch(
-      `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_KEY}&cx=${process.env.NEXT_PUBLIC_CONTEXT_KEY}&q=${searchTerm}&searchType=image`
+      `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_KEY}&cx=${process.env.NEXT_PUBLIC_CONTEXT_KEY}&q=${searchTerm}&searchType=image&start=${startIndex}`
     );
     const data = await response.json();
     setResults(data);
@@ -22,7 +23,7 @@ const ImageSearchPage = () => {
 
   useEffect(() => {
     handleGoogleApi();
-  }, [searchTerm]);
+  }, [searchTerm,startIndex]);
 
   return <>{results && <ImageSearchResults results={results} />}</>;
 };
