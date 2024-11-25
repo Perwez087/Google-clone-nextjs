@@ -11,7 +11,7 @@ export const HomeHeader = () => {
         <Link href={"https://image.google.com"} className="hover:underline">
           Images
         </Link>
-        <TbGridDots className="bg-transparent hover:bg-gray-200 text-xl cursor-pointer" />
+        <TbGridDots className="bg-transparent hover:bg-gray-200 p-1 rounded-full text-3xl cursor-pointer" />
         <button className="bg-blue-500 text-white px-6 py-2 rounded-md font-medium hover:brightness-105 hover:shadow-md transition-shadow">
           Sign in
         </button>
