@@ -24,8 +24,6 @@ const WebSearchPage = () => {
     handleGoogleApi();
   }, [searchTerm]);
 
-  console.log(results);
-
   return (
     <>
      {results && (<WebSearchResults results={results}/>)
