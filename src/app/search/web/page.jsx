@@ -1,4 +1,5 @@
 "use client";
+import WebSearchResults from "@/component/WebSearchResults";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -12,7 +13,7 @@ const WebSearchPage = () => {
       `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_KEY}&cx=${process.env.NEXT_PUBLIC_CONTEXT_KEY}&q=${searchTerm}`
     );
     const data = await response.json();
-    setResults(data.items);
+    setResults(data);
 
     if(!data.items){
       return <h1>No result found</h1>
@@ -23,15 +24,12 @@ const WebSearchPage = () => {
     handleGoogleApi();
   }, [searchTerm]);
 
+  console.log(results);
+
   return (
     <>
-     {results ? results.map((result,idx) =>{
-         return <h1 key={idx}>{result.title}</h1>
-     }): (
-      <div className="flex item-center justify-center pt-10">
-        <h1 className="text-xl">No result found</h1>
-      </div>
-     )}
+     {results && (<WebSearchResults results={results}/>)
+      }
   </>
   )
 };
