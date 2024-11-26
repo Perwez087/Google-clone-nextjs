@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "dependencies": {
     "html-react-parser": "^5.1.18",
     "next": "15.0.3",
