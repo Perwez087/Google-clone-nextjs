@@ -50,7 +50,7 @@ const WebSearchPage = () => {
   if (!results?.items) return <h1>No results found</h1>;
 
   return (
-    <Suspense fallback={<p>Loading search results...</p>}>
+    <Suspense>
       <WebSearchResults results={results} />
     </Suspense>
   );

@@ -34,7 +34,7 @@ const ImageSearchPage = () => {
   if (!results?.items) return <h1>No results found</h1>;
 
   return (
-    <Suspense fallback={<p>Loading images...</p>}>
+    <Suspense>
       <ImageSearchResults results={results} />
     </Suspense>
   );
