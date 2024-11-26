@@ -15,6 +15,7 @@ const SearchBox = () => {
     if (!term.trim()) return;
     router.push(`/search/web?searchTerm=${term}`);
   };
+
   return (
     <form
       onSubmit={handleSubmit}

@@ -16,6 +16,7 @@ const ImageSearchPage = () => {
     const data = await response.json();
     setResults(data);
 
+
     if (!data.items) {
       return <h1>No result found</h1>;
     }

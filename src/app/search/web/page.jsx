@@ -24,7 +24,7 @@ const WebSearchPage = () => {
 
   useEffect(() => {
     handleGoogleApi();
-  }, [searchTerm,startIndex]);
+  }, [searchTerm, startIndex]);
 
   return (
     <>

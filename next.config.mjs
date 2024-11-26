@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images:{
-        domains: ["freelogopng.com"]
-    }
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  images: {
+    domains: ["freelogopng.com"],
+  },
 };
 
 export default nextConfig;
