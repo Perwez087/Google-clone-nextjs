@@ -2,7 +2,7 @@
 
 import ImageSearchResults from "@/component/ImageSearchResults";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 const ImageSearchPage = () => {
   const [results, setResults] = useState(null);
@@ -33,7 +33,11 @@ const ImageSearchPage = () => {
 
   if (!results?.items) return <h1>No results found</h1>;
 
-  return <ImageSearchResults results={results} />;
+  return (
+    <Suspense fallback={<p>Loading images...</p>}>
+      <ImageSearchResults results={results} />
+    </Suspense>
+  );
 };
 
 export default ImageSearchPage;
